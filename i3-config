@@ -1,0 +1,288 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
+# This config file uses keycodes (bindsym) and was written for the QWERTY
+# layout.
+#
+# To get a config file with the same key positions, but for your current
+# layout, use the i3-config-wizard
+#
+# link this file in $HOME/.i3/config
+
+# Enable logging
+# exec_always /usr/bin/i3 -V -d all >~/.i3/i3log_$(date +'%F-%k_%M:%S') 2>&1
+
+# Modifier = Super, Support = Alt
+set $mod Mod4
+set $sup Mod1
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+new_window pixel 1
+new_float normal
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+font pango: Roboto 9
+
+# for them extra 2 pixels
+hide_edge_borders both
+
+# delay for urgency hints
+force_display_urgency_hint 1000 ms
+
+# neat trick to switch to previous workspace with same key
+workspace_auto_back_and_forth yes
+
+# use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+set $up k
+set $down j
+set $left h
+set $right l
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec gnome-terminal --hide-menubar
+bindsym $mod+Shift+Return exec gnome-terminal --role floating --hide-menubar
+for_window [window_role="floating"] floating enable
+for_window [window_role="floating"] resize set 800 500
+
+# kill focused window
+bindsym $mod+w kill
+
+# start rofi (a program launcher)
+# bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $sup+space exec --no-startup-id rofi -show run -switchers "file:rofi-file-browser"
+
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+o split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+equal floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+equal focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+# lock the screen
+bindsym $mod+Shift+z exec --no-startup-id xkb-switch -s us; exec betterlockscreen --lock dim
+
+# take a screenshot
+bindsym Print exec "spectacle"
+bindsym Shift+Print exec "spectacle -r"
+
+# name workspaces
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws0 10
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 # decrease screen brightness
+
+# Touchpad controls
+bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+bindsym XF86AudioPlay exec --no-startup-id  playerctl play-pause
+bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+
+        bindsym $down       resize grow height 5 px or 5 ppt
+        bindsym $up         resize shrink height 5 px or 5 ppt
+        bindsym $right      resize grow width 5 px or 5 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 5 px or 5 ppt
+        bindsym Down        resize grow height 5 px or 5 ppt
+        bindsym Up          resize shrink height 5 px or 5 ppt
+        bindsym Right       resize grow width 5 px or 5 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# i3-gaps
+
+# Theme colors
+# class                   border  backgr. text    indic.   child_border
+ client.focused          #556064 #556064 #80FFF9 #FDF6E3
+ client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
+ client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
+ client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+ client.placeholder      #000000 #0c0c0c #ffffff #000000
+
+ client.background       #2B2C2B
+
+# Set inner/outer gaps
+gaps inner 10
+gaps outer -4
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+# # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+smart_borders on
+
+## startup scripts
+
+exec --no-startup-id feh --bg-scale '/home/zach/Pictures/rick.png'
+exec --no-startup-id xautolock -time 10 -notify 30 -locker 'betterlockscreen --lock dim'
+exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+exec --no-startup-id compton
+exec_always --no-startup-id copyq
+exec_always --no-startup-id ~/.i3/polybar.sh &
+exec_always --no-startup-id setxkbmap -layout us,gr -option 'grp:caps_toggle'
+
+##  window rules
+
+# Nemo
+for_window [class="Nautilus"] floating enable
+for_window [class="Nautilus"] resize set 640 480
+
+# KeePassXC
+for_window [class="keepassxc"] floating enable
+
+# Google Chrome
+assign [class="Google-chrome"] workspace $ws1
+
+# Skype
+assign [class="Skype"] workspace $ws0
+
+# Mattermost
+assign [class="Mattermost"] workspace $ws0
+
+# Slack
+assign [class="Slack"] workspace $ws0
+
+# Evolution
+assign [class="Evolution"] workspace $ws0
+
+# Telegram
+assign [class="TelegramDesktop"] workspace $ws9
+
+# Spotify
+assign [class="Spotify"] workspace $ws9
+for_window [class="Spotify"] resize set 60 ppt 0
+
+# Pavucontrol
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Pavucontrol"] resize set 800 600 
