@@ -13,10 +13,11 @@ alias pauto='sudo powertop --auto-tune'
 alias apt-get='sudo apt-get'
 alias apt="sudo apt"
 alias untar="tar xvf"
-alias sourcenode="source $ΗΟΜΕ/node/bin/activate"
+alias sourcenode="source ~/node/bin/activate"
 alias cd..="cd .."
 alias fhere="find . -name "
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias myIP="curl http://ipecho.net/plain"
 
 #Improvements
 alias mv="mv -i"
@@ -27,6 +28,8 @@ alias ps="ps auxf"
 alias mkdir="mkdir -p"
 alias wget="wget -c"
 
-#Docker: remove all exited containers
+#Docker 
+#remove all exited containers
 alias dockerRemoveAllExited="sudo docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm"
-
+#get container IP
+alias dockerContainerIP="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
