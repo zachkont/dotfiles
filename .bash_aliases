@@ -8,6 +8,7 @@ alias fix-wordpress-perms='chmod -R a=r,u+w,a+X '
 alias checklag='sudo rdmsr -a 0x19a'
 alias fixlag='sudo wrmsr -a 0x19a 0x0'
 alias prelag='sudo modprobe msr'
+alias flag='prelag && checklag && fixlag'
 alias gameon='xinput --set-prop "Logitech Gaming Mouse G502" "Device Accel Constant Deceleration" 1.3'
 alias pauto='sudo powertop --auto-tune'
 alias apt-get='sudo apt-get'
@@ -18,15 +19,17 @@ alias cd..="cd .."
 alias fhere="find . -name "
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias myIP="curl http://ipecho.net/plain"
+alias reconfCompton="pkill -USR1 compton"
 
 #Improvements
 alias mv="mv -i"
 alias df="df -Tha --total"
-alias du="du -ach | sort -h"
+alias du="du -ch | sort -h"
 alias free="free -mt"
 alias ps="ps auxf"
 alias mkdir="mkdir -p"
 alias wget="wget -c"
+alias cat="bat"
 
 #Docker 
 #remove all exited containers
