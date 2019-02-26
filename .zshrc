@@ -1,13 +1,16 @@
+# Path to main user's home - useful for using same script with root
+export MAINHOME=/home/zach
+
 # If you come from bash you might have to change your $PATH.
-export PATH=/home/zach/.local/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$MAINHOME/.local/bin:/home/zach/bin:/usr/local/bin:/usr/sbin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.github-repos/oh-my-zsh
+export ZSH=$MAINHOME/.github-repos/oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="gallois"
+ZSH_THEME="spaceship"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -59,8 +62,17 @@ ZSH_THEME="gallois"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  docker
   git
+  zsh_reload
+  yarn
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
+
+# Disable compfix to avoid getting a warning about permissions in root shell
+# https://github.com/robbyrussell/oh-my-zsh/issues/6835#issuecomment-390216875
+ZSH_DISABLE_COMPFIX=true
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,16 +106,22 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # source ~/.bash_aliases if they exist
-if [ -f ~/.bash_aliases ]; then
-      . ~/.bash_aliases
+if [ -f $MAINHOME/.bash_aliases ]; then
+      . $MAINHOME/.bash_aliases
 fi
 
 # source ~/.bash_extras if they exist
-if [ -f ~/.bash_extras ]; then
-      . ~/.bash_extras
+if [ -f $MAINHOME/.bash_extras ]; then
+      . $MAINHOME/.bash_extras
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $MAINHOME/.fzf.zsh ] && source $MAINHOME/.fzf.zsh
 
 # Android SDK
 export ANDROID_HOME=/opt/android-sdk
+
+# Nodej and yarn via nvm
+# export PATH="$(yarn global bin):$PATH"
+export NVM_DIR="$MAINHOME/.github-repos/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
