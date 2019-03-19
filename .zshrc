@@ -123,5 +123,5 @@ export ANDROID_HOME=/opt/android-sdk
 # Nodej and yarn via nvm
 # export PATH="$(yarn global bin):$PATH"
 export NVM_DIR="$MAINHOME/.github-repos/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
