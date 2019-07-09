@@ -14,10 +14,11 @@ alias untar="tar xvf"
 alias sourcenode="source ~/node/bin/activate"
 alias cd..="cd .."
 alias fhere="find . -name "
-alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias psg="ps aux | rg -v rg | rg -i -e VSZ -e"
 alias myIP="curl http://ipecho.net/plain"
 alias reconfCompton="pkill -USR1 compton"
 alias duf="du -ch | sort -h"
+alias gcan="git commit --amend --no-edit --verbose"
 
 #Improvements
 alias mv="mv -i"
@@ -27,6 +28,7 @@ alias ps="ps auxf"
 alias mkdir="mkdir -p"
 alias wget="wget -c"
 alias cat="bat"
+alias grep="rg"
 
 #Docker 
 #remove all exited containers
