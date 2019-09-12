@@ -1,0 +1,2 @@
+# link to /etc/udev/rules.d
+SUBSYSTEM=="drm", ACTION=="change", RUN+="/home/zach/.dotfiles/hdmi-switch.sh"
