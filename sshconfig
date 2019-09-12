@@ -1,0 +1,39 @@
+# cp to ~/.ssh/config
+#Hetzner
+Host hetzner1
+    IdentityFile ~/.ssh/hetzner1
+
+#Gitlab programize
+Host gitlab.com
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostName gitlab.com
+    IdentityFile ~/.ssh/githubkey
+    User git
+
+#Gitlab z.kontoulis
+Host gitlab.com-zkontoulis
+    HostName gitlab.com
+    User git
+    IdentityFile ~/.ssh/id_rsa
+#GitHub zkontprogramize
+Host github.com-zkontprogramize
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/githubprogramizekey
+
+
+#GitHub zachkont
+Host github.com-zachkont
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/githubzachkont
+
+#GitHub HarrisInfiot
+Host github.com-infiot
+    IdentityFile /home/zach/.ssh/id_krypton.pub
+    HostName github.com
+    ProxyCommand /usr/bin/krssh %h %p
+    IdentitiesOnly yes
+    User git
+    PKCS11Provider /usr/lib/kr-pkcs11.so
+
