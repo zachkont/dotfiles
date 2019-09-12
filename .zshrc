@@ -2,7 +2,7 @@
 export MAINHOME=/home/zach
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$MAINHOME/.local/bin:/home/zach/bin:/usr/local/bin:/usr/sbin:$PATH
+export PATH=$MAINHOME/.local/bin:$MAINHOME/bin:$MAINHOME/.yarn/bin:/usr/local/bin:/usr/sbin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$MAINHOME/.github-repos/oh-my-zsh
@@ -115,7 +115,14 @@ if [ -f $MAINHOME/.bash_extras ]; then
       . $MAINHOME/.bash_extras
 fi
 
-[ -f $MAINHOME/.fzf.zsh ] && source $MAINHOME/.fzf.zsh
+# fzf
+# Auto-completion
+# ---------------
+[[ $- == *i* ]] && source "/home/zach/.dotfiles/fzf/completion.zsh" 2> /dev/null
+# Key bindings
+# ------------
+source "/home/zach/.dotfiles/fzf/key-bindings.zsh"
+
 
 # Android SDK
 export ANDROID_HOME=/opt/android-sdk
@@ -125,3 +132,10 @@ export ANDROID_HOME=/opt/android-sdk
 export NVM_DIR="$MAINHOME/.github-repos/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# Does not work without node installed
+#export YVM_DIR=/home/zach/.yvm
+#[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
+
+# Go binary
+export PATH=$PATH:/usr/local/go/bin
