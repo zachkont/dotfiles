@@ -4,9 +4,9 @@ set nocompatible              " be iMproved, required by vundle
 filetype off                  " required by vundle
 
 "Set the runtime path to include fzf
-set rtp+=~/.github-repos/fzf     
+set rtp+=/home/zach/.github-repos/fzf     
 "Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/home/zach/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "Let Vundle handle itself
@@ -62,7 +62,7 @@ set incsearch           "Enable incremental search
 set ignorecase          "Ignore case in search patterns
 set smartcase           "Override the 'ignorecase' option if the search pattern contains uppercase characters
 "set spell               "Enable spellcheck"
-set spellfile=~/.vim/spell/en.utf-8.add
+set spellfile=/home/zach/.vim/spell/en.utf-8.add
 set hlsearch            "Highlight all search matches"
 "Focus the searched term in the center
 nnoremap n nzzzv
