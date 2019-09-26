@@ -1,4 +1,0 @@
-modprobe msr
-rdmsr -a 0x19a
-wrmsr -a 0x19a 0x0
-
