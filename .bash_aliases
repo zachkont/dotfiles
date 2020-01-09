@@ -5,7 +5,7 @@ alias glog='git log --oneline --abbrev-commit --all --graph --decorate --color'
 alias fix-wordpress-perms='chmod -R a=r,u+w,a+X '
 
 #Fluff
-alias flag='sudo bash /home/zach/.dotfiles/fixlag.sh'
+alias flag='sudo bash /home/zach/.dotfiles/fixlag'
 alias gameon='xinput --set-prop "Logitech Gaming Mouse G502" "Device Accel Constant Deceleration" 1.3'
 alias pauto='sudo powertop --auto-tune'
 alias apt-get='sudo apt-get'

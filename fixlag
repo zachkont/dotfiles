@@ -6,6 +6,7 @@ logfile="/home/zach/fixlag.log"
 #echo "before writing" >> $logfile
 #rdmsr -a 0x19a >> $logfile
 
+modprobe msr
 wrmsr -a 0x19a 0x0
 
 #echo "after writing" >> $logfile
