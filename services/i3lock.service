@@ -1,0 +1,12 @@
+[Unit]
+Description=lock on suspend
+Before=sleep.target
+
+[Service]
+User=zach
+Type=forking
+Environment=Display=:0
+ExecStart=/usr/bin/betterlockscreen -lock dim
+
+[Install]
+WantedBy=sleep.target
