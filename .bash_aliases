@@ -29,6 +29,7 @@ alias mkdir="mkdir -p"
 alias wget="wget -c"
 alias cat="bat"
 alias grep="rg"
+alias fd="fdfind"
 
 #Docker 
 #remove all exited containers
