@@ -170,3 +170,8 @@ export NVM_DIR="$MAINHOME/.github-repos/nvm"
 export PATH=$PATH:/usr/local/go/bin
 
 source /home/zach/.config/broot/launcher/bash/br
+
+# Setup gpg-agent
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+
