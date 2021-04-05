@@ -19,21 +19,21 @@ SPACESHIP_PROMPT_ORDER=(
   git           # Git section (git_branch + git_status)
   package       # Package version
   node          # Node.js section
-  ruby          # Ruby section
-  elixir        # Elixir section
-  golang        # Go section
-  php           # PHP section
-  rust          # Rust section
-  haskell       # Haskell Stack section
-  julia         # Julia section
+#  ruby          # Ruby section
+#  elixir        # Elixir section
+#  golang        # Go section
+#  php           # PHP section
+#  rust          # Rust section
+#  haskell       # Haskell Stack section
+#  julia         # Julia section
   #docker        # Docker section
-  aws           # Amazon Web Services section
+#  aws           # Amazon Web Services section
   venv          # virtualenv section
   conda         # conda virtualenv section
   pyenv         # Pyenv section
-  ember         # Ember.js section
+#  ember         # Ember.js section
   #kubecontext   # Kubectl context section
-  terraform     # Terraform workspace section
+#  terraform     # Terraform workspace section
   line_sep      # Line break
   battery       # Battery level and status
   vi_mode       # Vi-mode indicator
@@ -174,4 +174,20 @@ source /home/zach/.config/broot/launcher/bash/br
 # Setup gpg-agent
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/zach/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/zach/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/zach/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/zach/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 

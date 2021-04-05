@@ -9,6 +9,7 @@ alias flag='sudo bash /home/zach/.dotfiles/fixlag'
 alias gameon='xinput --set-prop "Logitech Gaming Mouse G502" "Device Accel Constant Deceleration" 1.3'
 alias pauto='sudo powertop --auto-tune'
 alias apt-get='sudo apt-get'
+alias apt-update-key='sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys'
 alias apt="sudo apt"
 alias untar="tar xvf"
 alias sourcenode="source ~/node/bin/activate"
@@ -17,7 +18,7 @@ alias fhere="find . -name "
 alias psg="ps aux | rg -v rg | rg -i -e VSZ -e"
 alias myIP="curl http://ipecho.net/plain"
 alias reconfCompton="pkill -USR1 compton"
-alias duf="du -ch | sort -h"
+#alias duf="du -ch | sort -h"
 alias gcan="git commit --amend --no-edit --verbose"
 
 #Improvements
@@ -27,7 +28,6 @@ alias free="free -mt"
 alias ps="ps auxf"
 alias mkdir="mkdir -p"
 alias wget="wget -c"
-alias cat="bat"
 alias grep="rg"
 alias fd="fdfind"
 
@@ -37,6 +37,9 @@ alias dockerRemoveAllExited="sudo docker ps -a | grep Exit | cut -d ' ' -f 1 | x
 #get container IP
 alias dockerContainerIP="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
 
+#Git
+#Rebase current branch on fresh master
+alias gitupdate="alias gitupdate='git fetch origin master:master && git rebase -i master'"
 
 #infiot shortcuts
-source /infiot/bash-shortcuts
+source /home/zach/infiot/bash-shortcuts
