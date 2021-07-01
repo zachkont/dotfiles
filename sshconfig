@@ -1,39 +1,43 @@
-# cp to ~/.ssh/config
+# Tunnel 2nd and 3rd connection through 1st
+#ControlMaster auto
+#ControlPath ~/.ssh/control:%h:%p:%r
+
+### Server keys ###
+
 #Hetzner
 Host hetzner1
     IdentityFile ~/.ssh/hetzner1
 
+### Programize git remotes ###
+
 #Gitlab programize
-Host gitlab.com
-    PubkeyAcceptedKeyTypes +ssh-rsa
-    HostName gitlab.com
-    IdentityFile ~/.ssh/githubkey
+Host git.programize.com
+    HostName git.programize.com
     User git
+    IdentityFile ~/.ssh/gitzkont
+
+#Gitlab zkont
+Host gitlab.com
+    HostName gitlab.com
+    User git
+    IdentityFile ~/.ssh/gitzkont
+
+    #GitHub zkontprogramize
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/gitzkont
+
+### Personal git remotes ###
 
 #Gitlab z.kontoulis
 Host gitlab.com-zkontoulis
     HostName gitlab.com
     User git
-    IdentityFile ~/.ssh/id_rsa
-#GitHub zkontprogramize
-Host github.com-zkontprogramize
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/githubprogramizekey
-
+    IdentityFile ~/.ssh/githubzachkont
 
 #GitHub zachkont
 Host github.com-zachkont
     HostName github.com
     User git
     IdentityFile ~/.ssh/githubzachkont
-
-#GitHub HarrisInfiot
-Host github.com-infiot
-    IdentityFile /home/zach/.ssh/id_krypton.pub
-    HostName github.com
-    ProxyCommand /usr/bin/krssh %h %p
-    IdentitiesOnly yes
-    User git
-    PKCS11Provider /usr/lib/kr-pkcs11.so
-

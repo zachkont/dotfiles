@@ -7,7 +7,7 @@ killall -q polybar compton # Telegram
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 # Launch polybar
-polybar -c $HOME/.config/polybar/main.config main &
+polybar -c $HOME/.dotfiles/polybar.config main &
 
 #Telegram &
 

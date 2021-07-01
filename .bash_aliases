@@ -11,6 +11,7 @@ alias pauto='sudo powertop --auto-tune'
 alias apt-get='sudo apt-get'
 alias apt-update-key='sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys'
 alias apt="sudo apt"
+alias pacman="sudo pacman"
 alias untar="tar xvf"
 alias sourcenode="source ~/node/bin/activate"
 alias cd..="cd .."
@@ -29,7 +30,7 @@ alias ps="ps auxf"
 alias mkdir="mkdir -p"
 alias wget="wget -c"
 alias grep="rg"
-alias fd="fdfind"
+alias ls="exa"
 
 #Docker 
 #remove all exited containers
@@ -41,5 +42,3 @@ alias dockerContainerIP="docker inspect -f '{{range .NetworkSettings.Networks}}{
 #Rebase current branch on fresh master
 alias gitupdate="alias gitupdate='git fetch origin master:master && git rebase -i master'"
 
-#infiot shortcuts
-source /home/zach/infiot/bash-shortcuts
